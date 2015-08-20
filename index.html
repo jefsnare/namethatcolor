@@ -1,0 +1,24 @@
+<script src="namethatcolor.js"></script>
+<style>
+body {font: 16px Helvetica, Arial, sans-serif; margin: 20px auto; width: 400px; text-align: center;}
+#name { display: block; margin: 10px 0 0 0; color: #333; font-size: 40px;}
+#color { font-size: 20px; }
+</style>
+
+<input id="color"/>
+<span id="name"></span>
+
+<script>
+var timeout;
+document.getElementById('color').oninput = function () {
+  var value = this.value;
+  clearTimeout(timeout);
+  timeout = setTimeout(function () {
+    var n_match  = ntc.name('#' + value);
+    n_rgb        = n_match[0]; // This is the RGB value of the closest matching color
+    n_name       = n_match[1]; // This is the text string for the name of the match
+    n_exactmatch = n_match[2]; // True if exact color match, False if close-match
+    document.getElementById('name').innerHTML = n_name;
+  }, 200);
+};
+</script>
