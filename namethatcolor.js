@@ -1,3 +1,7 @@
+/**
+ * Copyright http://chir.ag/projects/ntc/
+ */
+
 var ntc = {
 
   init: function() {
